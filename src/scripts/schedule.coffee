@@ -47,7 +47,7 @@ module.exports = (robot) ->
   if !robot.brain.get(STORE_KEY)
     robot.brain.set(STORE_KEY, {})
 
-  robot.respond /schedule (?:new|add)(?: #(.*))? "(.*?)" ((?:.|\s)*)$/i, (msg) ->
+  robot.respond /schedule (?:new|add)(?: #?(.*))? ["“](.*)["”] ((?:.|\s)*)$/i, (msg) ->
     target_room = msg.match[1]
 
     if not is_blank(target_room) and isRestrictedRoom(target_room, robot, msg)
